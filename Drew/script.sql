@@ -1,7 +1,6 @@
 -- drop table min_temps;
 -- drop table max_temps;
 -- drop table average_temps;
--- drop table historical_temps;
 
 -- CREATE TABLE min_temps (
 -- 	id SERIAL PRIMARY KEY,
@@ -30,6 +29,17 @@
 -- 	abbrev VARCHAR (4)
 -- );
 
+-- CREATE TABLE historical_temps (
+-- 	id SERIAL PRIMARY KEY,
+-- 	min_temp FLOAT,
+-- 	max_temp FLOAT,
+-- 	average_temp FLOAT,
+-- 	year INT,
+-- 	month VARCHAR (20),
+-- 	country VARCHAR (33),
+-- 	abbrev VARCHAR (4)
+-- );
+	
 -- UPDATE min_temps
 -- SET month = 'January'
 -- WHERE month = ' Jan Average';
@@ -187,15 +197,4 @@
 -- inner join average_temps on min_temps.id = average_temps.id)
 -- order by id asc;
 
--- CREATE TABLE historical_temps (
--- 	id SERIAL PRIMARY KEY,
--- 	min_temp FLOAT,
--- 	max_temp FLOAT,
--- 	average_temp FLOAT,
--- 	year INT,
--- 	month VARCHAR (20),
--- 	country VARCHAR (33),
--- 	abbrev VARCHAR (4)
--- );
-
-select * from historical_temps
+select * from min_temps order by id asc
