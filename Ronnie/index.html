@@ -2,10 +2,77 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Insert Title Here</title>
-        <link rel ="stylesheet" type ="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Global Warming Data</title>
     </head>
     <body>
-        
+        <div class="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand center" style="background-color: rgb(255,255,255);" href="index.html">Global Warming</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown left">
+                            <!-- <div class="well">
+                                <h5>Select Year</h5> -->
+                                <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                            </div> -->
+                            <div class="observablehq" dir="auto" style="margin-bottom: 17px;"><form style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
+                                <button name="b" type="button" style="margin-right: 0.4em; width: 5em;">Play</button>
+                                <label style="display: flex; align-items: center;">
+                                  <input name="i" type="range" min="0" max="2471" value="0" step="1" style="width: 180px;">
+                                  <output name="o" style="margin-left: 0.4em;">2021</output>
+                                </label>
+                              </form></div>
+                                <!-- <div class="dropdown-menu float-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="WebVisualizations/temperature.html">Temperature</a>
+                                <a class="dropdown-item" href="WebVisualizations/humidity.html">Sea Level</a>
+                                <a class="dropdown-item" href="WebVisualizations/cloudiness.html">Sea Ice Level</a>
+                                </div> -->
+                        </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/comparison.html">COMPARISON</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/data.html">DATA</a>
+                            </li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class ="container">
+            <div class ="row">
+                <div class="col-md-6">
+                    <div id="scatter">test text</div>
+                </div>
+                <div class="col-md-6">
+                    <div id="wiggle">test text</div>
+                </div>
+            </div>
+                <div class ="row">
+                    <div class="col-md-6">
+                        <div id="spiral">test text</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="spiral">test text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="./static/js/app.js"></script>
+        <script src="samples.json"></script>
+
     </body>
+
+
 </html>
