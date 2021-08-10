@@ -24,66 +24,25 @@
 
 -- SELECT * FROM Clearwater_Beach_FL
 
-WITH HI AS (
-SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Honolulu_HI
-GROUP BY 1,2
-ORDER BY YEAR ASC
-), Dauphin_Island_AL AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Dauphin_Island_AL
-GROUP BY 1,2
-ORDER BY YEAR ASC
-), Clearwater_Beach_FL AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Clearwater_Beach_FL
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, Lewisetta_VA AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Lewisetta_VA
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, Pulaski_GA AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Pulaski_GA
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, Rockport_TX AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Rockport_TX
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, San_Diego_CA AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM San_Diego_CA
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, Seavy_Island_ME AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Seavy_Island_ME
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, South_Beach_OR AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM South_Beach_OR
-GROUP BY 1,2
-ORDER BY YEAR ASC)
-, Waveland_MS AS (SELECT  YEAR, Station_ID, ROUND(AVG(Monthly_MSL),3) AS YEARLY_MSL
-FROM Waveland_MS
-GROUP BY 1,2
-ORDER BY YEAR ASC)
 
-SELECT * FROM HI
+SELECT YEAR, Station_ID, Monthly_MSL FROM Honolulu_HI
 UNION
-SELECT * FROM Dauphin_Island_AL
+SELECT YEAR, Station_ID, Monthly_MSL FROM Dauphin_Island_AL
 UNION
-SELECT * FROM Clearwater_Beach_FL
+SELECT YEAR, Station_ID, Monthly_MSL FROM Clearwater_Beach_FL
 UNION
-SELECT * FROM Lewisetta_VA
+SELECT YEAR, Station_ID, Monthly_MSL FROM Lewisetta_VA
 UNION
-SELECT * FROM Pulaski_GA
+SELECT YEAR, Station_ID, Monthly_MSL FROM Pulaski_GA
 UNION
-SELECT * FROM Rockport_TX
+SELECT YEAR, Station_ID, Monthly_MSL FROM Rockport_TX
 UNION
-SELECT * FROM San_Diego_CA
+SELECT YEAR, Station_ID, Monthly_MSL FROM San_Diego_CA
 UNION
-SELECT * FROM Seavy_Island_ME
+SELECT YEAR, Station_ID, Monthly_MSL FROM Seavy_Island_ME
 UNION
-SELECT * FROM South_Beach_OR
+SELECT YEAR, Station_ID, Monthly_MSL FROM South_Beach_OR
 UNION
-SELECT * FROM Waveland_MS
+SELECT YEAR, Station_ID, Monthly_MSL FROM Waveland_MS
 
 ORDER BY 1
