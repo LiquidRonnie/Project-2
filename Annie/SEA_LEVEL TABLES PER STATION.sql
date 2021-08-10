@@ -10,8 +10,8 @@
 -- 	Low_Conf DECIMAL(3,3)
 -- );
 
--- DELETE FROM Clearwater_Beach_FL
--- 	WHERE YEAR < 1980
+-- SELECT * FROM Clearwater_Beach_FL
+--  	WHERE YEAR BETWEEN 1980 AND 2020
 	
 -- SELECT * FROM Clearwater_Beach_FL
 

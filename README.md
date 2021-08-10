@@ -1,1 +1,1 @@
-# Is it HOT in here, or is it just me?
+# Is it HOT out here, or is it just me?
