@@ -25,24 +25,24 @@
 -- SELECT * FROM Clearwater_Beach_FL
 
 
-SELECT YEAR, Station_ID, Monthly_MSL FROM Honolulu_HI
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Dauphin_Island_AL
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Clearwater_Beach_FL
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Lewisetta_VA
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Pulaski_GA
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Rockport_TX
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM San_Diego_CA
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Seavy_Island_ME
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM South_Beach_OR
-UNION
-SELECT YEAR, Station_ID, Monthly_MSL FROM Waveland_MS
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Honolulu_HI
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Dauphin_Island_AL
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Clearwater_Beach_FL
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Lewisetta_VA
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Pulaski_GA
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Rockport_TX
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM San_Diego_CA
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Seavy_Island_ME
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM South_Beach_OR
+-- UNION
+-- SELECT YEAR, Station_ID, Month, Monthly_MSL FROM Waveland_MS
 
-ORDER BY 1
+-- ORDER BY 1,3
