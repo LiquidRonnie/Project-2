@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>So Hot In Here!</title>
+    </head>
+    <body>
+        <div class="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand center" style="background-color: rgb(255,255,255);" href="index.html">Global Warming</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown left">
+                            <!-- <div class="well">
+                                <h5>Select Year</h5> -->
+                                <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                            </div> -->
+                            <div class="observablehq" dir="auto" style="margin-bottom: 17px;"><form style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
+                                <button name="b" type="button" style="margin-right: 0.4em; width: 5em;">Play</button>
+                                <label style="display: flex; align-items: center;">
+                                  <input name="i" type="range" min="0" max="2471" value="0" step="1" style="width: 180px;">
+                                  <output name="o" style="margin-left: 0.4em;">2021</output>
+                                </label>
+                              </form></div>
+                                <!-- <div class="dropdown-menu float-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="WebVisualizations/temperature.html">Temperature</a>
+                                <a class="dropdown-item" href="WebVisualizations/humidity.html">Sea Level</a>
+                                <a class="dropdown-item" href="WebVisualizations/cloudiness.html">Sea Ice Level</a>
+                                </div> -->
+                        </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/comparison.html">COMPARISON</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/data.html">DATA</a>
+                            </li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class ="container">
+            <div class ="row">
+                <div class="col-md-6">
+                    <div id="scatter">test text</div>
+                </div>
+                <div class="col-md-6">
+                    <div id="stream">test text</div>
+                    <script>
+                        picasso.chart({
+                          element: document.querySelector('#container'),
+                          data: [
+                                  {
+                                      type:'matrix',
+                                      data: [
+                                          ["year","station_id","month","monthly_msl"],
+                                          [1980,"Rockport, TX",1,-0.143],
+                                          [1980,"Waveland, MS",1,0.032],
+                                          [1980,"Lewisetta,VA",1,0.013],
+                                          [1980,"South Beach, OR",1,-0.014],
+                                          [1980,"San Diego, CA",1,0.019],
+                                          [1980,"Dauphin Island, AL",1,0.054],
+                                          [1980,"Seavy Island, ME",1,-0.115],
+                                          [1980,"Honolulu, HI",1,0.081],
+                                          [1980,"Pulaski, GA",1,0.070],
+                                          [1980,"Clearwater Beach, FL",1,0.046],
+                                          [1980,"Waveland, MS",2,-0.047],
+                                          [1980,"Lewisetta,VA",2,-0.077],
+                                          [1980,"Rockport, TX",2,-0.144],
+                                          [1980,"Honolulu, HI",2,0.076],
+                                          [1980,"Clearwater Beach, FL",2,-0.014],
+                                          [1980,"Dauphin Island, AL",2,-0.017],
+                                          [1980,"San Diego, CA",2,0.085],
+                                          [1980,"Pulaski, GA",2,0.025],
+                                          [1980,"South Beach, OR",2,0.074],
+                                          [1980,"Seavy Island, ME",2,-0.073],
+                                          [1980,"Clearwater Beach, FL",3,-0.047],
+                                          [1980,"South Beach, OR",3,-0.047],
+                                          [1980,"Waveland, MS",3,-0.055],
+                                          [1980,"Honolulu, HI",3,0.022],
+                                          [1980,"Lewisetta,VA",3,-0.138],
+                                          [1980,"San Diego, CA",3,0.022],
+                                          [1980,"Dauphin Island, AL",3,-0.016],
+                                          [1980,"Pulaski, GA",3,-0.047],
+                                          [1980,"Rockport, TX",3,-0.179],
+                                          [1980,"Seavy Island, ME",3,-0.144],
+                                          [1980,"Honolulu, HI",4,0.010],
+                                          [1980,"South Beach, OR",4,0.004],
+                                          [1980,"Rockport, TX",4,-0.277],
+                                          [1980,"Seavy Island, ME",4,-0.092],
+                                          [1980,"Lewisetta,VA",4,-0.027],
+                                          [1980,"Dauphin Island, AL",4,0.044],
+                                          [1980,"Pulaski, GA",4,-0.023],
+                                          [1980,"San Diego, CA",4,-0.012],
+                                          [1980,"Clearwater Beach, FL",4,-0.031],
+                                          [1980,"Waveland, MS",4,-0.039],
+                                          [1980,"South Beach, OR",5,-0.032],
+                                          [1980,"Clearwater Beach, FL",5,-0.034],
+                                          [1980,"Lewisetta,VA",5,-0.006],
+                                          [1980,"San Diego, CA",5,-0.041],
+                                          [1980,"Honolulu, HI",5,-0.002],
+                                          [1980,"Waveland, MS",5,-0.064],
+                                          [1980,"Seavy Island, ME",5,-0.037],
+                                          [1980,"Pulaski, GA",5,-0.008],
+                                          [1980,"Rockport, TX",5,-0.227],
+                                          [1980,"Dauphin Island, AL",5,-0.025],
+                                          [1980,"Honolulu, HI",6,0.012],
+                                          [1980,"South Beach, OR",6,0.016],
+                                          [1980,"San Diego, CA",6,-0.036],
+                                          [1980,"Clearwater Beach, FL",6,-0.055],
+                                          [1980,"Waveland, MS",6,-0.135],
+                                          [1980,"Pulaski, GA",6,-0.029],
+                                          [1980,"Lewisetta,VA",6,-0.101],
+                                          [1980,"Seavy Island, ME",6,-0.091],
+                                          [1980,"Dauphin Island, AL",6,-0.068],
+                                          [1980,"Rockport, TX",6,-0.253],
+                                          [1980,"South Beach, OR",7,-0.049],
+                                          [1980,"Lewisetta,VA",7,-0.110],
+                                          [1980,"Dauphin Island, AL",7,-0.070],
+                                          [1980,"Pulaski, GA",7,-0.064],
+                                          [1980,"Waveland, MS",7,-0.084],
+                                          [1980,"Rockport, TX",7,-0.258],
+                                          [1980,"Clearwater Beach, FL",7,-0.058],
+                                          [1980,"Honolulu, HI",7,0.055],
+                                          [1980,"San Diego, CA",7,-0.065],
+                                          [1980,"Seavy Island, ME",7,-0.075],
+                                          [1980,"Waveland, MS",8,-0.055],
+                                          [1980,"Dauphin Island, AL",8,-0.049],
+                                          [1980,"Seavy Island, ME",8,-0.069],
+                                          [1980,"San Diego, CA",8,-0.009],
+                                          [1980,"South Beach, OR",8,-0.057],
+                                          [1980,"Honolulu, HI",8,0.016],
+                                          [1980,"Rockport, TX",8,-0.062],
+                                          [1980,"Lewisetta,VA",8,-0.084],
+                                          [1980,"Clearwater Beach, FL",8,-0.073],
+                                          [1980,"Pulaski, GA",8,-0.145],
+                                          [1980,"Waveland, MS",9,-0.103],
+                                          [1980,"Dauphin Island, AL",9,-0.091],
+                                          [1980,"South Beach, OR",9,-0.003],
+                                          [1980,"Honolulu, HI",9,-0.020],
+                                          [1980,"Seavy Island, ME",9,-0.097],
+                                          [1980,"San Diego, CA",9,-0.042],
+                                          [1980,"Clearwater Beach, FL",9,-0.076],
+                                          [1980,"Rockport, TX",9,-0.246],
+                                          [1980,"Pulaski, GA",9,-0.133],
+                                          [1980,"Lewisetta,VA",9,-0.136],
+                                          [1980,"San Diego, CA",10,-0.056],
+                                          [1980,"Pulaski, GA",10,-0.179],
+                                          [1980,"Dauphin Island, AL",10,-0.175],
+                                          [1980,"Clearwater Beach, FL",10,-0.126],
+                                          [1980,"Rockport, TX",10,-0.352],
+                                          [1980,"Lewisetta,VA",10,-0.131],
+                                          [1980,"Seavy Island, ME",10,-0.087],
+                                          [1980,"Honolulu, HI",10,-0.007],
+                                          [1980,"Waveland, MS",10,-0.250],
+                                          [1980,"South Beach, OR",10,-0.036],
+                                          [1980,"Waveland, MS",11,-0.116],
+                                          [1980,"Pulaski, GA",11,-0.102],
+                                          [1980,"Seavy Island, ME",11,-0.098],
+                                          [1980,"Clearwater Beach, FL",11,-0.052],
+                                          [1980,"Rockport, TX",11,-0.274],
+                                          [1980,"South Beach, OR",11,-0.070],
+                                          [1980,"Dauphin Island, AL",11,-0.063],
+                                          [1980,"Honolulu, HI",11,0.026],
+                                          [1980,"San Diego, CA",11,-0.051],
+                                          [1980,"Lewisetta,VA",11,-0.152],
+                                          [1980,"Clearwater Beach, FL",12,-0.060],
+                                          [1980,"San Diego, CA",12,-0.043],
+                                          [1980,"Dauphin Island, AL",12,-0.080],
+                                          [1980,"Honolulu, HI",12,0.068],
+                                          [1980,"Rockport, TX",12,-0.249],
+                                          [1980,"Lewisetta,VA",12,-0.150],
+                                          [1980,"Seavy Island, ME",12,-0.140],
+                                          [1980,"South Beach, OR",12,0.006],
+                                          [1980,"Waveland, MS",12,-0.100],
+                                          [1980,"Pulaski, GA",12,-0.045],
+                                      ],
+                                  },
+                               ],
+                          settings: {
+                              collections: [{
+                                  key: 'stacked',
+                                  data: {
+                                      extract: {
+                                          field: 'month',
+                                          props: {
+                                              line: {field: 'station_id'},
+                                              end: {field: 'monthly_msl'}
+                                          }
+                                      },
+                                      stack: {
+                                stackKey: d => d.value,
+                                  value: d => d.end.value,
+                                  offset: 'silhouette',
+                                  order: 'insideout'
+                            }
+                          }
+                        }],
+                        scales: {
+                          y: {
+                            data: {
+                              collection: {
+                                key: 'stacked'
+                              }
+                            },
+                            invert: true,
+                            expand: 0.5,
+                          },
+                          t: { data: { extract: { field: 'month' } } },
+                          color: { data: { extract: { field: 'station_id' } }, 
+                                   type: 'categorical-color',
+                                   range:['#F44336',
+                                  '#E91E63',
+                                  '#9C27B0',
+                                  '#673AB7',
+                                  '#3F51B5',
+                                  '#2196F3',
+                                  '#03A9F4',
+                                  '#00BCD4',
+                                  '#009688',
+                                  '#4CAF50',] }
+                        },
+                        components: [{
+                          type: 'axis',
+                          dock: 'bottom',
+                          scale: 't'
+                        }, {
+                          key: 'lines',
+                          type: 'line',
+                          data: {
+                            collection: 'stacked'
+                          },
+                          settings: {
+                            coordinates: {
+                              major: { scale: 't' },
+                              minor0: { scale: 'y', ref: 'start * 100' },
+                              minor: { scale: 'y', ref: 'end' },
+                              layerId: { ref: 'line' }
+                            },
+                            layers: {
+                              curve: 'monotone',
+                              line: {
+                                show: false
+                              },
+                              area: {
+                                fill: { scale: 'color', ref: 'line' }
+                              }
+                            }
+                          }
+                        }]
+                      }
+                    })
+                      </script>
+                </div>
+            </div>
+                <div class ="row">
+                    <div class="col-md-6">
+                        <div id="spiral">test text</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="spiral">test text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="./static/js/app.js"></script>
+        <script src="samples.json"></script>
+
+    </body>
+
+
+</html>
