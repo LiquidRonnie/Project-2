@@ -1,0 +1,53 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.axis {
+  font: 14px sans-serif;
+}
+
+.line {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  stroke-width: 2px;
+}
+
+.active {
+  font-weight: bold;
+  fill: #000;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.inactive {
+  font-weight: lighter;
+  fill: #c9c9c9;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
+
+.inactive:hover {
+  fill: #000;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  width: 150px;
+  height: 70px;
+  padding: 10px;
+  font: 12px sans-serif;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  background: rgb(65, 65, 65);
+  border: 5px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.axis-grid line {
+  stroke: lightgrey;
+}
+
