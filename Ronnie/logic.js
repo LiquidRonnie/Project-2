@@ -1114,74 +1114,190 @@
 // })
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 10, bottom: 30, left: 90},
-    width = 310 - margin.left - margin.right,
-    height = 210 - margin.top - margin.bottom;
+var margin = {top: 60, right: 40, bottom: 80, left: 100};
+var width = 660 - margin.left - margin.right;
+var height = 450 - margin.top - margin.bottom;
 
 //Read the data
 d3.csv("region_temp.csv", function(data) {
 
-  // group the data: I want to draw one line per group
-  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.region;})
+  // group the data: one line per region
+  var tempData = d3.nest()
+    .key(d => d.region)
     .entries(data);
 
-  // What is the list of groups?
-  allKeys = sumstat.map(function(d){return d.key})
+  // console log keys
+  var allKeys = tempData.map(d => d.key)
 
-  // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
+  //console.log(allKeys)
+
+  // Add an svg element for each group
   var svg = d3.select("#scatter")
     .selectAll("uniqueChart")
-    .data(sumstat)
+    .data(tempData)
     .enter()
     .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform",`translate(${margin.left}, ${margin.top})`);
 
-  // Add X axis --> it is a date format
+  // Add X axis
   var x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.year; }))
+    .domain(d3.extent(data, d => d.year))
     .range([ 0, width ]);
   svg
     .append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", `translate(0,${height})`)
     .call(d3.axisBottom(x).ticks(3));
 
   //Add Y axis
   var y = d3.scaleLinear()
-    .domain([25, d3.max(data, function(d) { return (+d.avg_temp * 1.8) +32; })])
+    .domain(d3.extent(data, d => (+d.avg_temp * 1.8) + 32))
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y).ticks(5));
+    .call(d3.axisLeft(y));
+
 
   // color palette
   var color = d3.scaleOrdinal()
     .domain(allKeys)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+    .range(['limegreen','orange','blue','red','purple','lightblue','green','pink'])
 
   // Draw the line
   svg
     .append("path")
       .attr("fill", "none")
-      .attr("stroke", function(d){ return color(d.key) })
-      .attr("stroke-width", 1.9)
-      .attr("d", function(d){
-        return d3.line()
-          .x(function(d) { return x(d.year); })
-          .y(function(d) { return y((+d.avg_temp *1.8) + 32 ); })
+      .attr("stroke", d => color(d.key))
+      .attr("stroke-width", 4.5)
+      .attr("d", d=> d3.line()
+          .x(d => x(d.year))
+          .y(d => y((+d.avg_temp * 1.8) + 32))
           (d.values)
-      })
-
+      )
   // Add titles
   svg
     .append("text")
     .attr("text-anchor", "start")
     .attr("y", -5)
     .attr("x", 0)
-    .text(function(d){ return(d.key)})
-    .style("fill", function(d){ return color(d.key) })
+    .text(d => d.key)
+    .style("fill", d => color(d.key))
+});
+  
 
-})
+
+// // set the dimensions and margins of the graph
+// var margin = {top: 60, right: 40, bottom: 80, left: 100};
+// var width = 660 - margin.left - margin.right;
+// var height = 450 - margin.top - margin.bottom;
+
+// // Append SVG element
+// var svg = d3.select("#scatter")
+//   .selectAll("uniqueChart")
+//   .append("svg")
+//   .attr("height", height + margin.top + margin.bottom)
+//   .attr("width", width + margin.left + margin.right)
+
+// // Append group element
+// var chartGroup = svg.append("g")
+//   .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
+// //Read the data
+// d3.csv("region_temp.csv").then(function(tempData) {
+
+//   // group the data: one line per region
+//   tempData = d3.nest()
+//     .key(d => d.region)
+//     .entries(data);
+
+//   // console log keys
+//   var allKeys = tempData.map(d=> d.key)
+
+//   //console.log(allKeys)
+
+//   // Add X axis
+//   var xScale = d3.scaleLinear()
+//     .domain(d3.extent(data, d => d.year))
+//     .range([ 0, width ]);
+
+//   //Add Y axis
+//   var yScale = d3.scaleLinear()
+//     .domain(d3.extent(data, d => (+d.avg_temp * 1.8) + 32))
+//     .range([ height, 0 ]);
+
+//   // Create axes
+//   var xAxis = d3.axisBottom(xScale);
+//   var yAxis = d3.axisLeft(yScale).ticks(3);
+
+//   // append axes
+//   chartGroup.append("g")
+//   .attr("transform", `translate(0," ${height})`)
+//   .call(xAxis)
+
+//   chartGroup.append("g")
+//     .call(yAxis)
+
+//   // // Add an svg element for each group
+//   // var svg = d3.select("#scatter")
+//   //   .selectAll("uniqueChart")
+//   //   .data(tempData)
+//   //   .enter()
+//   //   .append("svg")
+//   //     .attr("width", width + margin.left + margin.right)
+//   //     .attr("height", height + margin.top + margin.bottom)
+//   //   .append("g")
+//   //     .attr("transform",
+//   //           "translate(" + margin.left + "," + margin.top + ")");
+
+
+//     // .append("g")
+//     // .attr("transform", "translate(0," + height + ")")
+//     // .call(d3.axisBottom(x).ticks(3));
+
+
+//   // svg.append("g")
+//   //   .call(d3.axisLeft(y));
+
+//   // color palette
+//   var color = d3.scaleOrdinal()
+//     .domain(allKeys)
+//     .range(['limegreen','orange','blue','red','purple','lightblue','green','pink'])
+
+//   // line generator
+//   var line = d3.line()
+//     .x(d => xScale(d.year))
+//     .y(d => yScale((+d.avg_temp * 1.8) + 32))
+//       (tempData.values)
+
+//   // append line
+//   chartGroup.append("path")
+//     .data([tempData])
+//     .attr("d", line)
+//     .attr("fill", "none")
+//     .attr("stroke", d => color(d.key))
+//     .attr("stroke-width", 4.5)
+
+
+//   // // Draw the line
+//   // svg
+//   //   .append("path")
+//   //     .attr("fill", "none")
+//   //     .attr("stroke", function(d){ return color(d.key) })
+//   //     .attr("stroke-width", 4.5)
+//   //     .attr("d", function(d){
+//   //       return d3.line()
+//   //         .x(function(d) { return x(d.year); })
+//   //         .y(function(d) { return y((+d.avg_temp * 1.8) + 32); })
+//   //         (d.values)
+//   //     })
+//   // Add titles
+//   var titleGroup = chartGroup
+//     .append("text")
+//     .data(tempData)
+//     .attr("text-anchor", "start")
+//     .attr("y", -5)
+//     .attr("x", 0)
+//     .text(d =>d.key)
+//     .style("fill", d =>color(d.key))
+// });
