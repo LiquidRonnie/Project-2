@@ -8,7 +8,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Global Warming Data</title>
+        <title>So Hot In Here!</title>
     </head>
     <body>
         <div class="navigation">
@@ -25,7 +25,7 @@
                                 <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select>
                             </div> -->
                             <div class="observablehq" dir="auto" style="margin-bottom: 17px;"><form style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
-                                <button name="b" type="button" style="margin-right: 0.4em; width: 5em;">Play</button>
+                                <button class ="play-button" name="b" type="button" style="margin-right: 0.4em; width: 5em;">Play</button>
                                 <label style="display: flex; align-items: center;">
                                   <input name="i" type="range" min="0" max="2471" value="0" step="1" style="width: 180px;">
                                   <output name="o" style="margin-left: 0.4em;">2021</output>
@@ -49,12 +49,14 @@
         </div>
         <div class ="container">
             <div class ="row">
-                <div class="col-md-6">
-                    <div id="scatter">test text</div>
+                <div class="col-md-12">
+                    <div id="scatter"></div>
                 </div>
+            <div class ="row">
                 <div class="col-md-6">
                     <div id="wiggle">test text</div>
                 </div>
+            </div>
             </div>
                 <div class ="row">
                     <div class="col-md-6">
@@ -67,10 +69,15 @@
             </div>
         </div>
 
+        <script scr="https://d3js.org/d3.v3.min.js"></script>
+        <script src="//d3js.org/d3.v4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script src="./static/js/app.js"></script>
-        <script src="samples.json"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="logic.js"></script>
+        <!-- <script src="samples.json"></script> -->
 
     </body>
 
