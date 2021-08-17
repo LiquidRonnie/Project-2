@@ -29,10 +29,7 @@ var parseTime = d3.timeParse("%Y");
 
 // Load data from miles-walked-this-month.csv
 d3.csv("ice_data.csv").then(function(iceData) {
-
-  // Print the iceData
-  // console.log(iceData);
-
+  
   // Format the date and cast the miles value to a number
   iceData.forEach(function(data) {
     // data.date = parseTime(data.date);
@@ -52,7 +49,7 @@ d3.csv("ice_data.csv").then(function(iceData) {
   // Set the domain for the xLinearScale function
   var yLinearScale = d3.scaleLinear()
     .range([chartHeight, 0])
-    .domain([0, d3.max(iceData, data => data.extent+.33)]);
+    .domain([3, d3.max(iceData, data => data.extent+.33)]);
 
   // Create xaxis label
   var xlabelsGroup = chartGroup.append("g")
@@ -113,7 +110,7 @@ d3.csv("ice_data.csv").then(function(iceData) {
 
 
 
-  // Step 1: Initialize Tooltip
+  // Create Tooltip
   var toolTip = d3.tip()
     .attr("class", "tooltip")
     .offset([100, 60])
@@ -121,9 +118,7 @@ d3.csv("ice_data.csv").then(function(iceData) {
       return (`${d3.timeFormat("%Y")(d.year)}<br><br>${d.extent} million square km`);
     });
 
-  // Step 2: Create the tooltip in chartGroup.
-
-  // append circles
+  // Append circles
   var circlesGroup = chartGroup.selectAll("circle")
     .data(iceData)
     .enter()
@@ -131,60 +126,14 @@ d3.csv("ice_data.csv").then(function(iceData) {
     .attr("cx", d => xTimeScale(d.year))
     .attr("cy", d => yLinearScale(d.extent))
     .attr("r", "3")
-    // .attr("fill-opacity", "0")
     .on("mouseover", function(d) {
-      toolTip.show(d, this);
+      toolTip.show(d, this)
     })
     .on("mouseout", function(d) {
-      toolTip.hide(d);
+      toolTip.hide(d)
     });
 
   circlesGroup.call(toolTip);
-
-
-
-
-  // // Step 1: Initialize Tooltip
-  // var toolTip = d3.tip()
-  //   .attr("class", "tooltip")
-  //   .offset([100, 60])
-  //   .html(function(d) {
-  //     return (`${d3.timeFormat("%Y")(d.year)}<br><br>${d.extent} million square km`);
-  //   });
-
-  // // Step 2: Create the tooltip in chartGroup.
-  // chartGroup.call(toolTip);
-
-  // // Step 3: Create "mouseover" event listener to display tooltip
-  // circlesGroup.on("mouseover", function(d) {
-  //   toolTip.show(d, this);
-  // })
-
-  // // Step 4: Create "mouseout" event listener to hide tooltip
-  //   .on("mouseout", function(d) {
-  //     toolTip.hide(d);
-  //   });
-
-
-
-  // // Event listeners with transitions
-  // var trans = circlesGroup.on("mouseover", function() {
-  //   d3.select(this)
-  //     .transition()
-  //     .duration(100)
-  //     .attr("r", 8)
-  //     .attr("stroke", "grey")
-  //     .attr("stroke-width", "5")
-  //     .attr("fill-opacity", "0");
-  //   })
-  //   .on("mouseout", function() {
-  //     d3.select(this)
-  //       .transition()
-  //       .duration(100)
-  //       .attr("r", "3")
-  //       .attr("stroke-width", "0")
-  //       .attr("fill-opacity", "0");    
-  //   });
 
 }).catch(function(error) {
   console.log(error);
