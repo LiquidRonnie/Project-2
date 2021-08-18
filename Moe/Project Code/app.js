@@ -110,7 +110,7 @@ d3.csv("ice_data.csv").then(function(iceData) {
     .attr("text-anchor", "middle")
     .attr("font-size", "20px")
     .attr("class", "aquaIce")
-    .text("The Arctic is Melting")
+    .text("Ice Caps Extent Area")
     
   // interactive Play Botton  
     
