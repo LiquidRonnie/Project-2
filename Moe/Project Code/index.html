@@ -4,6 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- D3.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -25,12 +31,7 @@
                                 <h5>Select Year</h5> -->
                                 <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select>
                             </div> -->
-                            <div class="observablehq" dir="auto" style="margin-bottom: 17px;"><form style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
-                                <button class ="play-button" name="b" type="button" style="margin-right: 0.4em; width: 5em;">Play</button>
-                                <label style="display: flex; align-items: center;">
-                                  <input name="i" type="range" min="0" max="2471" value="0" step="1" style="width: 180px;">
-                                  <output name="o" style="margin-left: 0.4em;">2021</output>
-                                </label>
+                            <                                </label>
                               </form></div>
                                 <!-- <div class="dropdown-menu float-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="WebVisualizations/temperature.html">Temperature</a>
@@ -49,35 +50,93 @@
             </nav>
         </div>
         <div class ="container">
-            <div class ="row">
-                <div class="col-md-12">
-                    <div id="scatter">Ronnie</div>
+            <!-- <div class ="row"> -->
+                <div class="col-sm">
+                    <div> <img src="./web image.jpg" alt="Cloudy Map" width="800" height="250"></div>
                 </div>
+
+            <!-- </div> -->
+        </div>   
+        <div class ="container">
+            <!-- <div class ="row"> -->
+                <div class="col-sm-12">
+                    <h1>Mission</h1>
+                    <h3>Our Mission Is to Inform People to Create a Local Solutions for a Healthy Planet. 
+                        As of right now Learn More About Global Warming and How You Can Help Create a Healthy Planet!</h3>
+                </div>
+                
+            <!-- </div> -->
+        </div>         
+        <div class ="container">
+            <!-- <div class ="row"> -->
+                <div class="col-lg">
+                    <div id="scatter"></div>
+                </div>
+            <!-- </div> -->
+        </div>
+
+        
+        <div class ="container">
             <div class ="row">
-                <div class="col-md-6">
-                    <div id="wiggle">test text</div>
+                <div class = "col-lg-6">
+                    <h3 orange">Global Temperature Anomaly</h3>
+  
+   <p>In climate change studies, temperature <strong>anomalies</strong> are more important than absolute temperature. A temperature anomaly is the difference from an average, or baseline, temperature. The baseline temperature is typically computed by averaging 30 or more years of temperature data. A <strong style="color:#f00;">positive anomaly</strong> indicates the observed temperature was <strong style="color:#f00;">warmer</strong> than the baseline, while a <strong style="color:#2c7bb6;">negative anomaly</strong> indicates the observed temperature was <strong style="color:#2c7bb6">cooler</strong> than the baseline. </p>
+                </div>
+                <div class="col-lg-6 float-right" >
+                    <div id="weatherRadial"></div>
                 </div>
             </div>
-            </div>
-                <div class ="row">
-                    <div class="col-md-6">
-                        <div id="spiral">test text</div>
-                    </div>
-                    <div class="col-md-6">
-                        <div id="spiral">test text</div>
-                    </div>
+        </div>
+<div>---------------------------------------------------------------------------</div>
+
+        <div class ="container">
+            <div class ="row">
+                <div class="col-lg-6 float-right">
+                    <div id="iceLine" ></div>
+                </div>
+                <div class="col-lg-6">
+
+                    
+                    <h3 class= "orange"> Hello Drew</h3>
+                    <p>Learn more about the status of the Arctic and how you can protect and save what's left. The effects of climate change are devastating the Arctic and we must act now to help. Get Involved. Climate Change. Types: Polar Bear Facts, Climate Change Facts, You Can Help.</p>
                 </div>
             </div>
         </div>
 
-        <script scr="https://d3js.org/d3.v3.min.js"></script>
+
+        <div class ="container">        
+            <div class ="row">
+                <div class="col-lg">
+                    <div id="wiggle">Annie
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+            
+
+        <!-- <script scr="https://d3js.org/d3.v3.min.js"></script> -->
         <script src="//d3js.org/d3.v4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+
         <script src="logic.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+        <!-- <script src="app.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script scr="https://d3js.org/d3.v3.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+        <script src="apps1.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="app.js"></script>
 
     </body>
 
