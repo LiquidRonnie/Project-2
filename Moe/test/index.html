@@ -7,27 +7,52 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
         <!-- Google Font -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'> 
-        <title>So Hot In Here!</title>
+        <title>Learning ChartJS!</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
-        <div id="scatter">Ronnie</div>
+        <div class="float-Center"><h1 >We are learning ChartJs Here!!!</h1></div>
+
+
+
+        <div>
+            <canvas id="myChart"></canvas>
         </div>
+        <script>
+            const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
 
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script scr="https://d3js.org/d3.v3.min.js"></script>
-        <script src="//d3js.org/d3.v4.min.js"></script>
-        <!-- <script src="https://cdnjs.cloud<script src="https://d3js.org/d3.v5.min.js"></script>flare.com/ajax/libs/d3/5.5.0/d3.js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <!-- <script src="https://d3js.org/d3.v4.js"></script> -->
-        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-        <script src="logic.js"></script>
-        <script src="apps1.js"></script>
-        <!-- <script src="samples.json"></script> -->
 
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+
+var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 
 

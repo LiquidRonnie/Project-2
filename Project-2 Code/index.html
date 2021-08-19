@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- D3.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>So Hot In Here!</title>
+    </head>
+    <body>
+        <div class="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand center" style="background-color: rgb(255,255,255);" href="index.html">Global Warming</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown left">
+                            <!-- <div class="well">
+                                <h5>Select Year</h5> -->
+                                <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                            </div> -->
+                            <                                </label>
+                              </form></div>
+                                <!-- <div class="dropdown-menu float-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="WebVisualizations/temperature.html">Temperature</a>
+                                <a class="dropdown-item" href="WebVisualizations/humidity.html">Sea Level</a>
+                                <a class="dropdown-item" href="WebVisualizations/cloudiness.html">Sea Ice Level</a>
+                                </div> -->
+                        </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/comparison.html">COMPARISON</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="WebVisualizations/data.html">DATA</a>
+                            </li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class ="container">
+            <!-- <div class ="row"> -->
+                <div class="col-sm">
+                    <div> <img src="./web image.jpg" alt="Cloudy Map" width="800" height="250"></div>
+                </div>
+
+            <!-- </div> -->
+        </div>   
+        <div class ="container">
+            <div class ="row">
+                <div class="col-sm-4 center"></div>
+                <div class="col-sm-4 center">
+                    <h1>Mission</h1>
+                    <p>Our Mission Is to Inform People to Create a Local Solutions for a Healthy Planet. 
+                        As of right now Learn More About Global Warming and How You Can Help Create a Healthy Planet!</p>
+                </div>
+                <div class="col-sm-4 center"></div>
+                
+            </div>
+        </div> 
+        <div>---------------------------------------------------------------------------</div>        
+        <div class ="container">
+            <div class ="row">
+                <div class="col-lg">
+                    <h3 orange">Temperature increase in Regions from 1980-2020</h3>
+                </div>
+            </div>
+            <div class ="row">
+                <div class="col-sm-4 center"></div>
+                <div class="col-sm-4 center">
+                    <p>The charts show us that through the years since 1980, the temperature has increased gradually by a small amount, indicating that the world is indeed getting hotter. </p>
+                    </div>
+                <div class="col-sm-4 center"></div>
+            </div>
+            
+            <div class ="row">
+                <div class="col-lg">
+                    <div id="scatter"></div>
+                </div>
+            </div>
+        </div>
+
+        <div>---------------------------------------------------------------------------</div>
+       
+        <div class ="container">
+            <div class ="row">
+                <div class = "col-lg-6">
+                    <h3 orange">Global Temperature Anomaly</h3>
+  
+   <p>In climate change studies, temperature <strong>anomalies</strong> are more important than absolute temperature. A temperature anomaly is the difference from an average, or baseline, temperature. The baseline temperature is typically computed by averaging 30 or more years of temperature data. A <strong style="color:#f00;">positive anomaly</strong> indicates the observed temperature was <strong style="color:#f00;">warmer</strong> than the baseline, while a <strong style="color:#10283b;">negative anomaly</strong> indicates the observed temperature was <strong style="color:#10283b">cooler</strong> than the baseline. </p>
+                </div>
+                <div class="col-lg-6 float-right" >
+                    <div id="weatherRadial"></div>
+                </div>
+            </div>
+        </div>
+<div>---------------------------------------------------------------------------</div>
+
+        <div class ="container">
+            <div class ="row">
+                <div class="col-lg-6 float-right">
+                    <div id="iceLine" ></div>
+                </div>
+                <div class="col-lg-6">
+
+                    
+                    <h3> The Arctic is Melting</h3>
+                    <p>Learn more about the status of the Arctic and how you can protect and save what's left. The effects of climate change are devastating the Arctic and we must act now to help. Get Involved. Climate Change. Types: Polar Bear Facts, Climate Change Facts, You Can Help.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>---------------------------------------------------------------------------</div>
+        <div class ="container">        
+            <div class ="row">
+                <div class="col-lg">
+                    <div class="col-sm-4 center"></div>
+                    <div id="wiggle">
+                        <h3> The Sea Levels are Rising</h3>
+                        <p>Graphs show sea level rise projections for different environmental scenarios. National sea levels are rising by an average of 1 inch every 5 years. Measuring Sea Level Rise..</p>
+
+                        <div> <img src="./Mississippi_Sea_Level.png" alt="Cloudy Map" width="800" height="250"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+            
+
+        <!-- <script scr="https://d3js.org/d3.v3.min.js"></script> -->
+        <script src="//d3js.org/d3.v4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+
+        <script src="logic.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+        <!-- <script src="app.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script scr="https://d3js.org/d3.v3.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+        <script src="apps1.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="app.js"></script>
+
+    </body>
+
+
+</html>
