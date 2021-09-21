@@ -3,6 +3,8 @@ var margin = {top: 40, right: 20, bottom: 50, left: 100};
 var width = 260 - margin.left - margin.right;
 var height = 250 - margin.top - margin.bottom;
 
+var parseTime = d3.timeParse("%Y");
+
 //Read the data
 d3.csv("region_temp.csv", function(data) {
 
@@ -16,6 +18,7 @@ d3.csv("region_temp.csv", function(data) {
 
   //console.log(allKeys)
 
+
   // Add an svg element for each group
   var svg = d3.select("#scatter")
     .selectAll("uniqueChart")
@@ -27,6 +30,7 @@ d3.csv("region_temp.csv", function(data) {
     .append("g")
     .attr("transform",`translate(${margin.left}, ${margin.top})`);
 
+    
   // Add X axis
   var x = d3.scaleLinear()
     .domain(d3.extent(data, d => d.year))
@@ -34,7 +38,14 @@ d3.csv("region_temp.csv", function(data) {
   svg
     .append("g")
     .attr("transform", `translate(0,${height})`)
-    .call(d3.axisBottom(x).ticks(3))
+    .call(d3.axisBottom(x).ticks(3).tickFormat(d3.format("d")));
+  svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", 90)
+    .attr("y",200)
+    .text("Year");
+    
 
   //Add Y axis
   var y = d3.scaleLinear()
@@ -42,6 +53,14 @@ d3.csv("region_temp.csv", function(data) {
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
+  svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 2)
+    .attr("x", -8)
+    .attr("dy", "-2em")
+    .attr("transform", "rotate(-90)")
+    .text("Temperature (F)");
 
 
   // color palette
